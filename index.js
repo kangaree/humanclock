@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateElement = (elemId, newValue, shorthand) => {
       const elem = document.getElementById(elemId);
-      const newUrl = `/img/${shorthand + newValue}.gif`;
+      const newUrl = `./img/${shorthand + newValue}.gif`;
       if (newValue !== elem.alt) {
         elem.src = newUrl;
         elem.alt = newValue;
