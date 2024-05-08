@@ -1,57 +1,29 @@
-html,
-body {
+html, body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
+
+.clock-digit {
+  position: absolute;
+  width: 80px;
+  height: 100px;
+  top: 170px;
+}
+
+#hour1 { left: 40px; }
+#hour2 { left: 80px; }
+#minute1 { left: 170px; }
+#minute2 { left: 210px; }
+#second1 { left: 300px; }
+#second2 { left: 340px; }
+
 #canvas {
   position: absolute;
   width: 465px;
   height: 465px;
   background-repeat: no-repeat;
   background-image: url(./img/tenten.gif);
-}
-#hour1 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 40px;
-}
-#hour2 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 80px;
-}
-#minute1 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 170px;
-}
-#minute2 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 210px;
-}
-#second1 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 300px;
-}
-#second2 {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
-  left: 340px;
 }
