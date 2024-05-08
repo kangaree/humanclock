@@ -40,7 +40,17 @@ body {
   width: var(--sprite-width);
   height: var(--sprite-height);
   background: url("./spritesheet.png") no-repeat;
-  zoom: 0.5;
+}
+
+/* Apply margin-left only to characters that are adjacent to another character */
+.character + .character {
+  margin-left: -75px;
+}
+
+.colon {
+  /* The people start out standing but then crouch, so move down */
+  margin-top: 1em;
+  font-size: 4em;
 }
 
 @keyframes intro {
@@ -202,6 +212,41 @@ body {
 
 .t-0 {
   animation: t-0 1s steps(calc(var(--t-0-last-frame) - var(--t-0-first-frame)))
+    forwards;
+}
+
+/* The first minute and second digits roll over from 5 to 0 */
+@keyframes ms-0 {
+  from {
+    background-position: calc(-1 * var(--t-5-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-0-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.ms-0 {
+  /* We have a bit more time, so animate over 2 seconds */
+  animation: ms-0 2s steps(calc(var(--t-0-last-frame) - var(--t-5-first-frame)))
+    forwards;
+}
+
+/* The first hour digit rolls over from 2 to 0 */
+@keyframes h-0 {
+  from {
+    background-position: calc(-1 * var(--t-2-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-0-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.h-0 {
+  animation: h-0 10s steps(calc(var(--t-0-last-frame) - var(--t-2-first-frame)))
     forwards;
 }
 
