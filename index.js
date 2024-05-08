@@ -13,10 +13,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const updateElement = (elemId, newValue, shorthand) => {
       const elem = document.getElementById(elemId);
-      const newUrl = `./img/${shorthand + newValue}.gif`;
-      if (newValue !== elem.alt) {
-        elem.src = newUrl;
-        elem.alt = newValue;
+
+      const className = elem.classList.contains("intro")
+        ? `t-${newValue}-intro`
+        : `t-${newValue}`;
+
+      if (elem.getAttribute("data-number") !== newValue) {
+        elem.setAttribute("data-number", newValue);
+        elem.className = "";
+        elem.classList.add(className, "character");
       }
     };
 

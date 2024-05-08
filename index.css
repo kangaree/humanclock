@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,24 +7,396 @@ html, body {
   margin: 0;
 }
 
-.clock-digit {
-  position: absolute;
-  width: 80px;
-  height: 100px;
-  top: 170px;
+:root {
+  --sprite-width: 166px;
+  --sprite-height: 213px;
+  --start-frame: 0;
+  --last-frame: 124;
+  --intro-last-frame: 30;
+  --t-2-first-frame: var(--intro-last-frame);
+  --t-2-last-frame: 39;
+  --t-3-first-frame: var(--t-2-last-frame);
+  --t-3-last-frame: 45;
+  --t-4-first-frame: var(--t-3-last-frame);
+  --t-4-last-frame: 57;
+  --t-5-first-frame: var(--t-4-last-frame);
+  --t-5-last-frame: 73;
+  --t-6-first-frame: var(--t-5-last-frame);
+  --t-6-last-frame: 80;
+  --t-7-first-frame: var(--t-6-last-frame);
+  --t-7-last-frame: 92;
+  --t-8-first-frame: var(--t-7-last-frame);
+  --t-8-last-frame: 98;
+  --t-9-first-frame: var(--t-8-last-frame);
+  --t-9-last-frame: 105;
+  --t-0-first-frame: var(--t-9-last-frame);
+  --t-0-last-frame: 112;
+  --t-1-first-frame: var(--t-0-last-frame);
+  --t-1-last-frame: var(--last-frame);
 }
 
-#hour1 { left: 40px; }
-#hour2 { left: 80px; }
-#minute1 { left: 170px; }
-#minute2 { left: 210px; }
-#second1 { left: 300px; }
-#second2 { left: 340px; }
+.character {
+  display: inline-block;
+  width: var(--sprite-width);
+  height: var(--sprite-height);
+  background: url("./spritesheet.png") no-repeat;
+  zoom: 0.5;
+}
 
-#canvas {
-  position: absolute;
-  width: 465px;
-  height: 465px;
-  background-repeat: no-repeat;
-  background-image: url(./img/tenten.gif);
+@keyframes intro {
+  from {
+    background-position: calc(var(--start-frame) * var(--sprite-width)) 0;
+  }
+  to {
+    background-position: calc(
+        -1 * (var(--intro-last-frame)) * var(--sprite-width)
+      )
+      0;
+  }
+}
+
+.intro {
+  animation: intro 1s steps(var(--intro-last-frame)) forwards;
+}
+
+/* TODO: dd-1 */
+
+@keyframes t-2 {
+  from {
+    background-position: calc(-1 * var(--t-2-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-2-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-2 {
+  animation: t-2 1s steps(calc(var(--t-2-last-frame) - var(--intro-last-frame)))
+    forwards;
+}
+
+@keyframes t-3 {
+  from {
+    background-position: calc(-1 * var(--t-3-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-3-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-3 {
+  animation: t-3 1s steps(calc(var(--t-3-last-frame) - var(--t-3-first-frame)))
+    forwards;
+}
+
+@keyframes t-4 {
+  from {
+    background-position: calc(-1 * var(--t-4-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-4-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-4 {
+  animation: t-4 1s steps(calc(var(--t-4-last-frame) - var(--t-4-first-frame)))
+    forwards;
+}
+
+@keyframes t-5 {
+  from {
+    background-position: calc(-1 * var(--t-5-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-5-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-5 {
+  animation: t-5 1s steps(calc(var(--t-5-last-frame) - var(--t-5-first-frame)))
+    forwards;
+}
+
+@keyframes t-6 {
+  from {
+    background-position: calc(-1 * var(--t-6-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-6-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-6 {
+  animation: t-6 1s steps(calc(var(--t-6-last-frame) - var(--t-6-first-frame)))
+    forwards;
+}
+
+@keyframes t-7 {
+  from {
+    background-position: calc(-1 * var(--t-7-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-7-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-7 {
+  animation: t-7 1s steps(calc(var(--t-7-last-frame) - var(--t-7-first-frame)))
+    forwards;
+}
+
+@keyframes t-8 {
+  from {
+    background-position: calc(-1 * var(--t-8-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-8-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-8 {
+  animation: t-8 1s steps(calc(var(--t-8-last-frame) - var(--t-8-first-frame)))
+    forwards;
+}
+
+@keyframes t-9 {
+  from {
+    background-position: calc(-1 * var(--t-9-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-9-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-9 {
+  animation: t-9 1s steps(calc(var(--t-9-last-frame) - var(--t-9-first-frame)))
+    forwards;
+}
+
+@keyframes t-0 {
+  from {
+    background-position: calc(-1 * var(--t-0-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-0-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-0 {
+  animation: t-0 1s steps(calc(var(--t-0-last-frame) - var(--t-0-first-frame)))
+    forwards;
+}
+
+@keyframes t-1 {
+  from {
+    background-position: calc(-1 * var(--t-1-first-frame) * var(--sprite-width))
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-1-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-1 {
+  animation: t-1 1s steps(calc(var(--t-1-last-frame) - var(--t-1-first-frame)))
+    forwards;
+}
+
+@keyframes t-1-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-1-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-1-intro {
+  animation: t-1-intro 1s
+    steps(calc(var(--t-1-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-2-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-2-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-2-intro {
+  animation: t-2-intro 1s
+    steps(calc(var(--t-2-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-3-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-3-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-3-intro {
+  animation: t-3-intro 1s
+    steps(calc(var(--t-3-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-4-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-4-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-4-intro {
+  animation: t-4-intro 1s
+    steps(calc(var(--t-4-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-5-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-5-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-5-intro {
+  animation: t-5-intro 1s
+    steps(calc(var(--t-5-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-6-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-6-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-6-intro {
+  animation: t-6-intro 1s
+    steps(calc(var(--t-6-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-7-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-7-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-7-intro {
+  animation: t-7-intro 1s
+    steps(calc(var(--t-7-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-8-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-8-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-8-intro {
+  animation: t-8-intro 1s
+    steps(calc(var(--t-8-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-9-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-9-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-9-intro {
+  animation: t-9-intro 1s
+    steps(calc(var(--t-9-last-frame) - var(--intro-last-frame))) forwards;
+}
+
+@keyframes t-0-intro {
+  from {
+    background-position: calc(
+        -1 * var(--intro-last-frame) * var(--sprite-width)
+      )
+      0;
+  }
+  to {
+    background-position: calc(-1 * var(--t-0-last-frame) * var(--sprite-width))
+      0;
+  }
+}
+
+.t-0-intro {
+  animation: t-0-intro 1s
+    steps(calc(var(--t-0-last-frame) - var(--intro-last-frame))) forwards;
 }
