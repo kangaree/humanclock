@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const now = new Date();
     const seconds = now.getSeconds();
 
-    if (seconds === updateView.lastSec) return;
+    if (seconds === updateView.lastSec) {
+      requestAnimationFrame(updateView);
+      return;
+    }
     updateView.lastSec = seconds;
 
     const [hour, minute] = [now.getHours(), now.getMinutes()].map((n) =>
@@ -31,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updateElement("minute2", minute[1], "mm");
     updateElement("second1", s1, "s");
     updateElement("second2", s2, "ss");
+
+    requestAnimationFrame(updateView);
   };
 
-  setInterval(updateView, 1000);
+  requestAnimationFrame(updateView);
 });
