@@ -40,6 +40,8 @@ body {
   width: var(--sprite-width);
   height: var(--sprite-height);
   background: url("./spritesheet.png") no-repeat;
+  /* The people start out standing but then crouch, so move up */
+  margin-top: -50px;
 }
 
 /* Apply margin-left only to characters that are adjacent to another character */
@@ -49,7 +51,7 @@ body {
 
 .colon {
   /* The people start out standing but then crouch, so move down */
-  margin-top: 1em;
+  margin-top: 30px;
   font-size: 4em;
 }
 

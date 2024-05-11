@@ -46,5 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateView);
   };
 
-  requestAnimationFrame(updateView);
+  setTimeout(() => {
+    requestAnimationFrame(updateView);
+  }, 1000);
 });
